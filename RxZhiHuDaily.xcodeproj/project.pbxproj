@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C58658AD01B9D178224CB7E3 /* Pods_RxZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */; };
+		F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */; };
+		F5CD739A1F71F51D00E70DF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73991F71F51D00E70DF1 /* ViewController.swift */; };
+		F5CD739D1F71F51D00E70DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739B1F71F51D00E70DF1 /* Main.storyboard */; };
+		F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */; };
+		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
+		F5CD73AD1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */; };
+		F5CD73B81F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5CD73A91F71F51D00E70DF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5CD738C1F71F51D00E70DF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5CD73931F71F51D00E70DF1;
+			remoteInfo = RxZhiHuDaily;
+		};
+		F5CD73B41F71F51D00E70DF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5CD738C1F71F51D00E70DF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5CD73931F71F51D00E70DF1;
+			remoteInfo = RxZhiHuDaily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBBD73BDA0A22BD037ACBEC7 /* Pods-RxZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
+		CF7FBA744843156ADA27D8B8 /* Pods-RxZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
+		F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F5CD73991F71F51D00E70DF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5CD739C1F71F51D00E70DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5CD73A11F71F51D00E70DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5CD73A31F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5CD73A81F71F51D00E70DF1 /* RxZhiHuDailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxZhiHuDailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxZhiHuDailyTests.swift; sourceTree = "<group>"; };
+		F5CD73AE1F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5CD73B31F71F51D00E70DF1 /* RxZhiHuDailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxZhiHuDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxZhiHuDailyUITests.swift; sourceTree = "<group>"; };
+		F5CD73B91F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5CD73911F71F51D00E70DF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C58658AD01B9D178224CB7E3 /* Pods_RxZhiHuDaily.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73A51F71F51D00E70DF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73B01F71F51D00E70DF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3226B8CB0E9BE9854D2EA2C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBBD73BDA0A22BD037ACBEC7 /* Pods-RxZhiHuDaily.debug.xcconfig */,
+				CF7FBA744843156ADA27D8B8 /* Pods-RxZhiHuDaily.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8AE0CD399FCE043F47BE9776 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5CD738B1F71F51D00E70DF1 = {
+			isa = PBXGroup;
+			children = (
+				F5CD73961F71F51D00E70DF1 /* RxZhiHuDaily */,
+				F5CD73AB1F71F51D00E70DF1 /* RxZhiHuDailyTests */,
+				F5CD73B61F71F51D00E70DF1 /* RxZhiHuDailyUITests */,
+				F5CD73951F71F51D00E70DF1 /* Products */,
+				3226B8CB0E9BE9854D2EA2C5 /* Pods */,
+				8AE0CD399FCE043F47BE9776 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F5CD73951F71F51D00E70DF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */,
+				F5CD73A81F71F51D00E70DF1 /* RxZhiHuDailyTests.xctest */,
+				F5CD73B31F71F51D00E70DF1 /* RxZhiHuDailyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5CD73961F71F51D00E70DF1 /* RxZhiHuDaily */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */,
+				F5CD73991F71F51D00E70DF1 /* ViewController.swift */,
+				F5CD739B1F71F51D00E70DF1 /* Main.storyboard */,
+				F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */,
+				F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */,
+				F5CD73A31F71F51D00E70DF1 /* Info.plist */,
+			);
+			path = RxZhiHuDaily;
+			sourceTree = "<group>";
+		};
+		F5CD73AB1F71F51D00E70DF1 /* RxZhiHuDailyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */,
+				F5CD73AE1F71F51D00E70DF1 /* Info.plist */,
+			);
+			path = RxZhiHuDailyTests;
+			sourceTree = "<group>";
+		};
+		F5CD73B61F71F51D00E70DF1 /* RxZhiHuDailyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */,
+				F5CD73B91F71F51D00E70DF1 /* Info.plist */,
+			);
+			path = RxZhiHuDailyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5CD73931F71F51D00E70DF1 /* RxZhiHuDaily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5CD73BC1F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDaily" */;
+			buildPhases = (
+				F919BB16D83F744524F8360A /* [CP] Check Pods Manifest.lock */,
+				F5CD73901F71F51D00E70DF1 /* Sources */,
+				F5CD73911F71F51D00E70DF1 /* Frameworks */,
+				F5CD73921F71F51D00E70DF1 /* Resources */,
+				23DE5D35CFBBDAADA8F896FD /* [CP] Embed Pods Frameworks */,
+				AC063409AC3B5FE00FDF4670 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RxZhiHuDaily;
+			productName = RxZhiHuDaily;
+			productReference = F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5CD73A71F71F51D00E70DF1 /* RxZhiHuDailyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5CD73BF1F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDailyTests" */;
+			buildPhases = (
+				F5CD73A41F71F51D00E70DF1 /* Sources */,
+				F5CD73A51F71F51D00E70DF1 /* Frameworks */,
+				F5CD73A61F71F51D00E70DF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5CD73AA1F71F51D00E70DF1 /* PBXTargetDependency */,
+			);
+			name = RxZhiHuDailyTests;
+			productName = RxZhiHuDailyTests;
+			productReference = F5CD73A81F71F51D00E70DF1 /* RxZhiHuDailyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F5CD73B21F71F51D00E70DF1 /* RxZhiHuDailyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5CD73C21F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDailyUITests" */;
+			buildPhases = (
+				F5CD73AF1F71F51D00E70DF1 /* Sources */,
+				F5CD73B01F71F51D00E70DF1 /* Frameworks */,
+				F5CD73B11F71F51D00E70DF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5CD73B51F71F51D00E70DF1 /* PBXTargetDependency */,
+			);
+			name = RxZhiHuDailyUITests;
+			productName = RxZhiHuDailyUITests;
+			productReference = F5CD73B31F71F51D00E70DF1 /* RxZhiHuDailyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5CD738C1F71F51D00E70DF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Maple;
+				TargetAttributes = {
+					F5CD73931F71F51D00E70DF1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 53D2P848US;
+						ProvisioningStyle = Automatic;
+					};
+					F5CD73A71F71F51D00E70DF1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 53D2P848US;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F5CD73931F71F51D00E70DF1;
+					};
+					F5CD73B21F71F51D00E70DF1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 53D2P848US;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F5CD73931F71F51D00E70DF1;
+					};
+				};
+			};
+			buildConfigurationList = F5CD738F1F71F51D00E70DF1 /* Build configuration list for PBXProject "RxZhiHuDaily" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5CD738B1F71F51D00E70DF1;
+			productRefGroup = F5CD73951F71F51D00E70DF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5CD73931F71F51D00E70DF1 /* RxZhiHuDaily */,
+				F5CD73A71F71F51D00E70DF1 /* RxZhiHuDailyTests */,
+				F5CD73B21F71F51D00E70DF1 /* RxZhiHuDailyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5CD73921F71F51D00E70DF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */,
+				F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */,
+				F5CD739D1F71F51D00E70DF1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73A61F71F51D00E70DF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73B11F71F51D00E70DF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23DE5D35CFBBDAADA8F896FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC063409AC3B5FE00FDF4670 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F919BB16D83F744524F8360A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5CD73901F71F51D00E70DF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CD739A1F71F51D00E70DF1 /* ViewController.swift in Sources */,
+				F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73A41F71F51D00E70DF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CD73AD1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5CD73AF1F71F51D00E70DF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CD73B81F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5CD73AA1F71F51D00E70DF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5CD73931F71F51D00E70DF1 /* RxZhiHuDaily */;
+			targetProxy = F5CD73A91F71F51D00E70DF1 /* PBXContainerItemProxy */;
+		};
+		F5CD73B51F71F51D00E70DF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5CD73931F71F51D00E70DF1 /* RxZhiHuDaily */;
+			targetProxy = F5CD73B41F71F51D00E70DF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F5CD739B1F71F51D00E70DF1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5CD739C1F71F51D00E70DF1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5CD73A11F71F51D00E70DF1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5CD73BA1F71F51D00E70DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5CD73BB1F71F51D00E70DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5CD73BD1F71F51D00E70DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBBD73BDA0A22BD037ACBEC7 /* Pods-RxZhiHuDaily.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDaily/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDaily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F5CD73BE1F71F51D00E70DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF7FBA744843156ADA27D8B8 /* Pods-RxZhiHuDaily.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDaily/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDaily;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F5CD73C01F71F51D00E70DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDailyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDailyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxZhiHuDaily.app/RxZhiHuDaily";
+			};
+			name = Debug;
+		};
+		F5CD73C11F71F51D00E70DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDailyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDailyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RxZhiHuDaily.app/RxZhiHuDaily";
+			};
+			name = Release;
+		};
+		F5CD73C31F71F51D00E70DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDailyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDailyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RxZhiHuDaily;
+			};
+			name = Debug;
+		};
+		F5CD73C41F71F51D00E70DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 53D2P848US;
+				INFOPLIST_FILE = RxZhiHuDailyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maple.RxZhiHuDailyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RxZhiHuDaily;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5CD738F1F71F51D00E70DF1 /* Build configuration list for PBXProject "RxZhiHuDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CD73BA1F71F51D00E70DF1 /* Debug */,
+				F5CD73BB1F71F51D00E70DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CD73BC1F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CD73BD1F71F51D00E70DF1 /* Debug */,
+				F5CD73BE1F71F51D00E70DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CD73BF1F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDailyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CD73C01F71F51D00E70DF1 /* Debug */,
+				F5CD73C11F71F51D00E70DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CD73C21F71F51D00E70DF1 /* Build configuration list for PBXNativeTarget "RxZhiHuDailyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CD73C31F71F51D00E70DF1 /* Debug */,
+				F5CD73C41F71F51D00E70DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5CD738C1F71F51D00E70DF1 /* Project object */;
+}
