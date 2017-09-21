@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SlideMenuOptions.leftViewWidth = 200
         SlideMenuOptions.contentViewScale = 1
+        SlideMenuOptions.hideStatusBar = false
         let slideMenuVC = SlideMenuController(mainViewController: tabVC, leftMenuViewController: menuVC)
         self.window?.rootViewController = slideMenuVC
         self.window?.makeKeyAndVisible()

@@ -13,6 +13,8 @@
 		F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */; };
 		F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */; };
 		F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */; };
+		F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */; };
+		F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */; };
 		F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */; };
 		F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */; };
 		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
@@ -46,6 +48,8 @@
 		F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPOtherTypeViewController.swift; sourceTree = "<group>"; };
 		F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTabBarController.swift; sourceTree = "<group>"; };
 		F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPNavigationViewController.swift; sourceTree = "<group>"; };
+		F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuHeaderView.swift; sourceTree = "<group>"; };
+		F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemExtension.swift; sourceTree = "<group>"; };
 		F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		F57CC2E21F739C4F00371DD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +131,14 @@
 				F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F57CC2F01F73AB5700371DD8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		F5CD738B1F71F51D00E70DF1 = {
@@ -153,6 +166,7 @@
 		F5CD73961F71F51D00E70DF1 /* RxZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
+				F57CC2F01F73AB5700371DD8 /* Other */,
 				F57CC2E31F739C5400371DD8 /* Controller */,
 				F57CC2E21F739C4F00371DD8 /* View */,
 				F57CC2E11F739C4B00371DD8 /* Model */,
@@ -247,6 +261,7 @@
 		F5CD738C1F71F51D00E70DF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MP;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Maple;
@@ -371,7 +386,9 @@
 			files = (
 				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
 				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
+				F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */,
 				F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */,
+				F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */,
 				F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */,
 				F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */,
 				F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */,
