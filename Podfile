@@ -14,5 +14,5 @@ pod 'RxCocoa',    '3.0'
 pod 'RxDataSources', '1.0'
 pod 'SwiftDate', '4.1.7'
 pod 'SnapKit',  '3.0.0'
-
+pod 'SlideMenuControllerSwift', '3.0.2'
 end

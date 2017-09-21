@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
   - HandyJSON (1.7.2)
   - Kingfisher (3.11.0)
   - Moya (8.0.5):
@@ -17,6 +17,7 @@ PODS:
     - RxCocoa (~> 3.0)
     - RxSwift (~> 3.0)
   - RxSwift (3.0.0)
+  - SlideMenuControllerSwift (3.0.2)
   - SnapKit (3.0.0)
   - SwiftDate (4.1.7)
 
@@ -28,11 +29,12 @@ DEPENDENCIES:
   - RxCocoa (= 3.0)
   - RxDataSources (= 1.0)
   - RxSwift (= 3.0)
+  - SlideMenuControllerSwift (= 3.0.2)
   - SnapKit (= 3.0.0)
   - SwiftDate (= 4.1.7)
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
   Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
@@ -40,9 +42,10 @@ SPEC CHECKSUMS:
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
+  SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
   SnapKit: 98af0a4e9369d3c58f758967518081dbdc7eb1d9
   SwiftDate: '029be76691ee89176da3a46c7df3415b6734bc5b'
 
-PODFILE CHECKSUM: 60ec3b0d3228568f5cea819f3cc265172d2e8b2d
+PODFILE CHECKSUM: ccfffa3ff3965abd4d200b7cd3472b8aa1f272b1
 
 COCOAPODS: 1.2.0

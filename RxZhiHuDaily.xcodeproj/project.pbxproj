@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C58658AD01B9D178224CB7E3 /* Pods_RxZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */; };
+		F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */; };
+		F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */; };
+		F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */; };
+		F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */; };
+		F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */; };
 		F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */; };
-		F5CD739A1F71F51D00E70DF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73991F71F51D00E70DF1 /* ViewController.swift */; };
-		F5CD739D1F71F51D00E70DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739B1F71F51D00E70DF1 /* Main.storyboard */; };
 		F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */; };
 		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
 		F5CD73AD1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */; };
@@ -38,10 +41,13 @@
 		A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBD73BDA0A22BD037ACBEC7 /* Pods-RxZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7FBA744843156ADA27D8B8 /* Pods-RxZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
+		F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPHomeViewController.swift; sourceTree = "<group>"; };
+		F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuViewController.swift; sourceTree = "<group>"; };
+		F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPOtherTypeViewController.swift; sourceTree = "<group>"; };
+		F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTabBarController.swift; sourceTree = "<group>"; };
+		F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPNavigationViewController.swift; sourceTree = "<group>"; };
 		F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5CD73991F71F51D00E70DF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F5CD739C1F71F51D00E70DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5CD73A11F71F51D00E70DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5CD73A31F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +102,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F57CC2E11F739C4B00371DD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F57CC2E21F739C4F00371DD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F57CC2E31F739C5400371DD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */,
+				F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */,
+				F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */,
+				F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */,
+				F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F5CD738B1F71F51D00E70DF1 = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +153,10 @@
 		F5CD73961F71F51D00E70DF1 /* RxZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
+				F57CC2E31F739C5400371DD8 /* Controller */,
+				F57CC2E21F739C4F00371DD8 /* View */,
+				F57CC2E11F739C4B00371DD8 /* Model */,
 				F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */,
-				F5CD73991F71F51D00E70DF1 /* ViewController.swift */,
-				F5CD739B1F71F51D00E70DF1 /* Main.storyboard */,
 				F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */,
 				F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */,
 				F5CD73A31F71F51D00E70DF1 /* Info.plist */,
@@ -264,7 +297,6 @@
 			files = (
 				F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */,
 				F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */,
-				F5CD739D1F71F51D00E70DF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5CD739A1F71F51D00E70DF1 /* ViewController.swift in Sources */,
+				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
+				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
+				F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */,
+				F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */,
+				F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */,
 				F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,14 +410,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F5CD739B1F71F51D00E70DF1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5CD739C1F71F51D00E70DF1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

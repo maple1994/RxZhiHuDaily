@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let tabVC = MPTabBarController()
+        let menuVC = MPMenuViewController()
+        
+        SlideMenuOptions.leftViewWidth = 200
+        SlideMenuOptions.contentViewScale = 1
+        let slideMenuVC = SlideMenuController(mainViewController: tabVC, leftMenuViewController: menuVC)
+        self.window?.rootViewController = slideMenuVC
+        self.window?.makeKeyAndVisible()
         return true
     }
 
