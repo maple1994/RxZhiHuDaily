@@ -20,6 +20,8 @@
 		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
 		F5CD73AD1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */; };
 		F5CD73B81F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */; };
+		F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */; };
+		F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		F5CD73B31F71F51D00E70DF1 /* RxZhiHuDailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxZhiHuDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxZhiHuDailyUITests.swift; sourceTree = "<group>"; };
 		F5CD73B91F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuTableViewCell.swift; sourceTree = "<group>"; };
+		F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		F57CC2E11F739C4B00371DD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */,
+				F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +392,8 @@
 			files = (
 				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
 				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
+				F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */,
+				F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */,
 				F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */,
 				F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */,
 				F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */,

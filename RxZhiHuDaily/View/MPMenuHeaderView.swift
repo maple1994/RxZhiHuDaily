@@ -152,6 +152,7 @@ class MPImageTopButton: UIButton {
         guard let label = titleLabel, let img = imageView else {
             return
         }
+        img.frame.origin.y = (self.frame.height - img.frame.height - label.frame.height) * 0.5
         img.frame.origin.x = (self.frame.width - img.frame.size.width) * 0.5
         label.frame.origin.x = (self.frame.width - label.frame.size.width) * 0.5
         label.frame.origin.y = img.frame.maxY + 3
