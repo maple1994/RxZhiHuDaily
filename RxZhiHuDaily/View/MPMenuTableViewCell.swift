@@ -20,22 +20,29 @@ class MPMenuTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
+        let imgLabelView = UIView()
         selectedBackgroundView = selectedBgView
         self.backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
-        contentView.addSubview(iconImgView)
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(imgLabelView)
+        imgLabelView.addSubview(iconImgView)
+        imgLabelView.addSubview(titleLabel)
         contentView.addSubview(plusImgView)
         
-        iconImgView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(8)
+        imgLabelView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(10)
             make.centerY.equalToSuperview()
-            make.width.height.equalTo(20)
+        }
+        
+        iconImgView.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.leading.equalTo(iconImgView.snp.trailing).offset(10)
-            make.centerY.equalToSuperview()
+            make.leading.equalTo(iconImgView.snp.trailing)
+            make.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
         }
         
         plusImgView.snp.makeConstraints { (make) in

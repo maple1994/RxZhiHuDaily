@@ -18,6 +18,7 @@ class MPTabBarController: UITabBarController {
         let nav2 = MPNavigationViewController(rootViewController: otherVC)
         addChildViewController(nav1)
         addChildViewController(nav2)
+        self.tabBar.isHidden = true
     }
 
 }

@@ -22,6 +22,7 @@
 		F5CD73B81F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */; };
 		F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */; };
 		F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */; };
+		F5FACB761F73EFA3000108E8 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB751F73EFA3000108E8 /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F5CD73B91F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuItemModel.swift; sourceTree = "<group>"; };
+		F5FACB751F73EFA3000108E8 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		F5CD73961F71F51D00E70DF1 /* RxZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
+				F5FACB741F73EF9B000108E8 /* Tool */,
 				F57CC2F01F73AB5700371DD8 /* Other */,
 				F57CC2E31F739C5400371DD8 /* Controller */,
 				F57CC2E21F739C4F00371DD8 /* View */,
@@ -200,6 +203,14 @@
 				F5CD73B91F71F51D00E70DF1 /* Info.plist */,
 			);
 			path = RxZhiHuDailyUITests;
+			sourceTree = "<group>";
+		};
+		F5FACB741F73EF9B000108E8 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F5FACB751F73EFA3000108E8 /* ApiManager.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +405,7 @@
 				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
 				F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */,
 				F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */,
+				F5FACB761F73EFA3000108E8 /* ApiManager.swift in Sources */,
 				F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */,
 				F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */,
 				F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */,

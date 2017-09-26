@@ -7,6 +7,32 @@
 //
 
 import UIKit
+import Moya
+import HandyJSON
+import RxCocoa
+import RxSwift
+
+extension Response {
+    /// 将json解析为单个的Model
+    public func mapObject<T: HandyJSON>(_ type: T.Type) throws -> T {
+        guard let dic = try self.mapJSON() as? NSDictionary else {
+            throw MoyaError.jsonMapping(self)
+        }
+        guard let obj = T.deserialize(from: dic) else {
+            throw MoyaError.jsonMapping(self)
+        }
+        return obj
+    }
+}
+
+extension ObservableType where E == Response {
+    /// 这个是将JSON解析为Observable类型的Model
+    public func mapObject<T: HandyJSON>(_ type: T.Type) -> Observable<T> {
+        return flatMap { response -> Observable<T> in
+            return Observable.just(try response.mapObject(T.self))
+        }
+    }
+}
 
 extension UIColor {
     class func colorWithHexString (_ hex:String,alpha:CGFloat = 1.0) -> UIColor {
@@ -30,5 +56,4 @@ extension UIColor {
         Scanner(string: bString).scanHexInt32(&b)
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
     }
-
 }

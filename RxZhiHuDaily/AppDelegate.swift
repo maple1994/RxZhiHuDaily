@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let tabVC = MPTabBarController()
         let menuVC = MPMenuViewController()
-        
+        menuVC.tabbarVC = tabVC
         SlideMenuOptions.leftViewWidth = 200
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
