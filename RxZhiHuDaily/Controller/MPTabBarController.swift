@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 class MPTabBarController: UITabBarController {
 
@@ -21,4 +22,14 @@ class MPTabBarController: UITabBarController {
         self.tabBar.isHidden = true
     }
 
+}
+
+extension MPTabBarController: SlideMenuControllerDelegate {
+    func leftDidOpen() {
+        self.slideMenuController()?.leftPanGesture?.isEnabled = false
+    }
+    
+    func leftDidClose() {
+        self.slideMenuController()?.leftPanGesture?.isEnabled = true
+    }
 }

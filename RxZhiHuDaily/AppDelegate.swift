@@ -13,6 +13,7 @@ import SlideMenuControllerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+//    fileprivate var slideMenuVC: SlideMenuController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
         let slideMenuVC = SlideMenuController(mainViewController: tabVC, leftMenuViewController: menuVC)
+        slideMenuVC.delegate = tabVC
         self.window?.rootViewController = slideMenuVC
         self.window?.makeKeyAndVisible()
         return true
@@ -52,4 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
 
