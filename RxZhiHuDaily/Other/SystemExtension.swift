@@ -56,4 +56,11 @@ extension UIColor {
         Scanner(string: bString).scanHexInt32(&b)
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
     }
+    
+    class func rgb(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor {
+        return UIColor.init(red: r / 255,
+                            green: g / 255,
+                            blue: b / 255,
+                            alpha: 1.0)
+    }
 }

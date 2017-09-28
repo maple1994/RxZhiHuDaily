@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C58658AD01B9D178224CB7E3 /* Pods_RxZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */; };
+		F510D45D1F7C7F9C0099DE4A /* MPApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510D45C1F7C7F9C0099DE4A /* MPApiService.swift */; };
 		F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */; };
 		F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */; };
 		F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */; };
@@ -15,6 +16,7 @@
 		F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */; };
 		F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */; };
 		F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */; };
+		F5C8427D1F7B34AF005392B8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */; };
 		F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */; };
 		F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */; };
 		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
@@ -46,6 +48,7 @@
 		A94CD0218F8B9E425C42DD89 /* Pods_RxZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBD73BDA0A22BD037ACBEC7 /* Pods-RxZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7FBA744843156ADA27D8B8 /* Pods-RxZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxZhiHuDaily/Pods-RxZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
+		F510D45C1F7C7F9C0099DE4A /* MPApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPApiService.swift; sourceTree = "<group>"; };
 		F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPHomeViewController.swift; sourceTree = "<group>"; };
 		F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuViewController.swift; sourceTree = "<group>"; };
 		F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPOtherTypeViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPNavigationViewController.swift; sourceTree = "<group>"; };
 		F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuHeaderView.swift; sourceTree = "<group>"; };
 		F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemExtension.swift; sourceTree = "<group>"; };
+		F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		F57CC2E21F739C4F00371DD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */,
 				F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */,
 				F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */,
 			);
@@ -209,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				F5FACB751F73EFA3000108E8 /* ApiManager.swift */,
+				F510D45C1F7C7F9C0099DE4A /* MPApiService.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -402,7 +408,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
+				F510D45D1F7C7F9C0099DE4A /* MPApiService.swift in Sources */,
 				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
+				F5C8427D1F7B34AF005392B8 /* NewsTableViewCell.swift in Sources */,
 				F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */,
 				F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */,
 				F5FACB761F73EFA3000108E8 /* ApiManager.swift in Sources */,

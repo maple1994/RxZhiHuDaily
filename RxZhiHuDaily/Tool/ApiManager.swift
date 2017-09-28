@@ -10,7 +10,10 @@ import Foundation
 import Moya
 
 enum ApiManager {
+    /// 获取话题类型列表
     case getThemeList
+    /// 获取首页话题列表
+    case getHomeList
 }
 
 extension ApiManager: TargetType {
@@ -24,6 +27,8 @@ extension ApiManager: TargetType {
         switch self {
         case .getThemeList:
             return "4/themes"
+        case .getHomeList:
+            return "4/news/latest"
         }
     }
     
