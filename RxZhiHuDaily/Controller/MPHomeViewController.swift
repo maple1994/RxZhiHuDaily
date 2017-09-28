@@ -25,6 +25,8 @@ class MPHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsID)
         dataSource.configureCell = { (dataSource, tableView, indexPath, model) in
             let cell = tableView.dequeueReusableCell(withIdentifier: self.NewsID) as! NewsTableViewCell
@@ -54,6 +56,14 @@ class MPHomeViewController: UIViewController {
                 }
             })
         .addDisposableTo(disposeBag)
+        
+        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        
+        menuBtn.rx.tap
+            .subscribe(onNext: {
+                self.slideMenuController()?.openLeft()
+            })
+        .addDisposableTo(disposeBag)
     }
     
     fileprivate func setupUI() {
@@ -61,6 +71,7 @@ class MPHomeViewController: UIViewController {
         
         barImg = (navigationController?.navigationBar.subviews.first)!
         barImg.alpha = 0
+        navigationItem.title = "今日要闻"
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = menuBtn
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -94,5 +105,21 @@ class MPHomeViewController: UIViewController {
         let view = BannerView()
         return view
     }()
-
 }
+
+extension MPHomeViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        barImg.alpha = scrollView.contentOffset.y / 200
+        // tableView往下拖拽时，将offsetY绑定给bannerView的offY属性
+        scrollView.rx.contentOffset
+            .filter { $0.y < 0 }
+            .map { $0.y }
+            .asDriver(onErrorJustReturn: 0)
+            .drive(bannerView.offY)
+        .addDisposableTo(disposeBag)
+    }
+}
+
+
+
+

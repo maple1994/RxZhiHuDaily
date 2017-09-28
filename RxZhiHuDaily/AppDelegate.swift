@@ -22,10 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let menuVC = MPMenuViewController()
         menuVC.tabbarVC = tabVC
         SlideMenuOptions.leftViewWidth = 200
+        SlideMenuOptions.contentViewDrag = true
+        SlideMenuOptions.simultaneousGestureRecognizers = false
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
+        SlideMenuOptions.leftBezelWidth = UIScreen.main.bounds.width
         let slideMenuVC = SlideMenuController(mainViewController: tabVC, leftMenuViewController: menuVC)
-        slideMenuVC.delegate = tabVC
+        
         self.window?.rootViewController = slideMenuVC
         self.window?.makeKeyAndVisible()
         return true

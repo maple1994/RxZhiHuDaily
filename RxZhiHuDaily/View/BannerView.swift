@@ -18,7 +18,8 @@ class BannerView: UIView {
     fileprivate let itemH: CGFloat = 200
     let imgUrlArr = Variable([MPStoryModel]())
     let dispose = DisposeBag()
-    var offY = Variable(0.0)
+    // 监听tableView的滚动
+    var offY: Variable<CGFloat> = Variable(0.0)
     
     init() {
         super.init(frame: CGRect.zero)
@@ -65,6 +66,7 @@ class BannerView: UIView {
         .asObservable()
             .subscribe(onNext: {
                 offY in
+//                print(offY)
                 self.collectionView.visibleCells.forEach({ (cell) in
                     let myCell = cell as! BannerCell
                     myCell.imgView.frame.origin.y = CGFloat.init(offY)

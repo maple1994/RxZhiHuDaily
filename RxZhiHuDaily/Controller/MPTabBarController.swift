@@ -24,12 +24,3 @@ class MPTabBarController: UITabBarController {
 
 }
 
-extension MPTabBarController: SlideMenuControllerDelegate {
-    func leftDidOpen() {
-        self.slideMenuController()?.leftPanGesture?.isEnabled = false
-    }
-    
-    func leftDidClose() {
-        self.slideMenuController()?.leftPanGesture?.isEnabled = true
-    }
-}
