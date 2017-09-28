@@ -11,9 +11,11 @@ import Moya
 
 enum ApiManager {
     /// 获取话题类型列表
-    case getThemeList
+    case getThemeTypeList
     /// 获取首页话题列表
     case getHomeList
+    /// 获取某个话题列表
+    case getThemeList(Int)
 }
 
 extension ApiManager: TargetType {
@@ -25,10 +27,12 @@ extension ApiManager: TargetType {
     /// The path to be appended to `baseURL` to form the full `URL`.
     var path: String {
         switch self {
-        case .getThemeList:
+        case .getThemeTypeList:
             return "4/themes"
         case .getHomeList:
             return "4/news/latest"
+        case let .getThemeList(id):
+            return "4/theme/\(id)"
         }
     }
     

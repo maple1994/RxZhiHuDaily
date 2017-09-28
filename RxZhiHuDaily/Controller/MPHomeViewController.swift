@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 import SnapKit
 import Moya
 import RxDataSources

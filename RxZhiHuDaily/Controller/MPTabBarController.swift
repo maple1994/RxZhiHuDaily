@@ -11,12 +11,14 @@ import SlideMenuControllerSwift
 
 class MPTabBarController: UITabBarController {
 
+    var themeVC: MPThemeViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let homeVC = MPHomeViewController()
-        let otherVC = MPOtherTypeViewController()
+        themeVC = MPThemeViewController()
         let nav1 = MPNavigationViewController(rootViewController: homeVC)
-        let nav2 = MPNavigationViewController(rootViewController: otherVC)
+        let nav2 = MPNavigationViewController(rootViewController: themeVC!)
         addChildViewController(nav1)
         addChildViewController(nav2)
         self.tabBar.isHidden = true

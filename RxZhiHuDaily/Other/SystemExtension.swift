@@ -9,8 +9,10 @@
 import UIKit
 import Moya
 import HandyJSON
-import RxCocoa
-import RxSwift
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 
 let screenW: CGFloat = UIScreen.main.bounds.width
 let screenH: CGFloat = UIScreen.main.bounds.height

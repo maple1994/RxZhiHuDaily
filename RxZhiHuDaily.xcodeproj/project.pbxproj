@@ -12,7 +12,7 @@
 		F510D45F1F7C860F0099DE4A /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510D45E1F7C860F0099DE4A /* BannerView.swift */; };
 		F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */; };
 		F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */; };
-		F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */; };
+		F57CC2EA1F739C5400371DD8 /* MPThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E61F739C5400371DD8 /* MPThemeViewController.swift */; };
 		F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */; };
 		F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */; };
 		F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */; };
@@ -53,7 +53,7 @@
 		F510D45E1F7C860F0099DE4A /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPHomeViewController.swift; sourceTree = "<group>"; };
 		F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuViewController.swift; sourceTree = "<group>"; };
-		F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPOtherTypeViewController.swift; sourceTree = "<group>"; };
+		F57CC2E61F739C5400371DD8 /* MPThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPThemeViewController.swift; sourceTree = "<group>"; };
 		F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTabBarController.swift; sourceTree = "<group>"; };
 		F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPNavigationViewController.swift; sourceTree = "<group>"; };
 		F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuHeaderView.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			children = (
 				F57CC2E41F739C5400371DD8 /* MPHomeViewController.swift */,
 				F57CC2E51F739C5400371DD8 /* MPMenuViewController.swift */,
-				F57CC2E61F739C5400371DD8 /* MPOtherTypeViewController.swift */,
+				F57CC2E61F739C5400371DD8 /* MPThemeViewController.swift */,
 				F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */,
 				F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */,
 			);
@@ -421,7 +421,7 @@
 				F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */,
 				F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */,
 				F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */,
-				F57CC2EA1F739C5400371DD8 /* MPOtherTypeViewController.swift in Sources */,
+				F57CC2EA1F739C5400371DD8 /* MPThemeViewController.swift in Sources */,
 				F57CC2EB1F739C5400371DD8 /* MPTabBarController.swift in Sources */,
 				F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */,
 			);

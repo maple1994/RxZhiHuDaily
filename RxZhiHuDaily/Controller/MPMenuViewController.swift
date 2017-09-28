@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 import RxDataSources
 import Moya
 import Kingfisher
@@ -18,14 +20,14 @@ class MPMenuViewController: UIViewController {
     let themeArr = Variable([MPMenuItemModel]())
     let diposeBag = DisposeBag()
     let provide = RxMoyaProvider<ApiManager>()
-    var tabbarVC: UITabBarController?
+    var tabbarVC: MPTabBarController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.colorWithHexString("242A2F")
         setupUI()
 
-        provide.request(.getThemeList)
+        provide.request(.getThemeTypeList)
             .flatMap { (reponse) -> Observable<[MPMenuItemModel]> in
                 guard let dic = try? reponse.mapJSON() as? NSDictionary else {
                     return Observable.error(MPError.parseJsonError)
@@ -57,13 +59,14 @@ class MPMenuViewController: UIViewController {
                     cell.iconImgView.image = nil
                 }
         }.addDisposableTo(diposeBag)
-        
+       
         tableView.rx
             .itemSelected
             .subscribe(onNext: { ip in
                 if ip.row == 0 {
                     self.tabbarVC?.selectedIndex = 0
                 }else {
+                    self.tabbarVC?.themeVC?.themeModel = self.themeArr.value[ip.row]
                     self.tabbarVC?.selectedIndex = 1
                 }
                 self.slideMenuController()?.closeLeft()

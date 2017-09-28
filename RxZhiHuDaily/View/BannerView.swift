@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import RxSwift
-import RxDataSources
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 import RxCocoa
 import Kingfisher
 
