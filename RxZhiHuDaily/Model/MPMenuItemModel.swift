@@ -27,6 +27,7 @@ struct MPStoryListModel: HandyJSON {
 
 /// 话题单元模型
 struct MPStoryModel: HandyJSON {
+    /// list_stories中的字段
     var images: [String]? {
         didSet {
             // 多图取决于该数组的长度是否大于1
@@ -35,6 +36,8 @@ struct MPStoryModel: HandyJSON {
             }
         }
     }
+    /// top_stories中的字段
+    var image: String?
     var type: Int?
     var id: Int?
     var ga_prefix: String?

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    fileprivate var slideMenuVC: SlideMenuController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UITableViewCell.appearance().selectionStyle = .none
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let tabVC = MPTabBarController()
         let menuVC = MPMenuViewController()

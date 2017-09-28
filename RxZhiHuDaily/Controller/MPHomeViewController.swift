@@ -37,12 +37,20 @@ class MPHomeViewController: UIViewController {
             .bindTo(tableView.rx.items(dataSource: dataSource))
         .addDisposableTo(disposeBag)
         
+        // 请求数据
         MPApiService.shareAPI.loadHomeNewsList()
         .asDriver(onErrorJustReturn: MPStoryListModel())
             .drive(onNext: { (model) in
                 if let storyArr = model.stories {
                     let section = SectionModel(model: "测试", items: storyArr)
                     self.modelArr.value = [section]
+                }
+                if let topArr = model.top_stories {
+                    if topArr.count > 1 {
+                        self.bannerView.imgUrlArr.value = [topArr.last!] + topArr + [topArr.first!]
+                    }else {
+                        self.bannerView.imgUrlArr.value = topArr
+                    }
                 }
             })
         .addDisposableTo(disposeBag)
@@ -66,6 +74,9 @@ class MPHomeViewController: UIViewController {
             make.top.equalToSuperview().offset(-64)
             make.left.right.bottom.equalToSuperview()
         }
+        
+        bannerView.frame = CGRect(x: 0, y: 0, width: screenW, height: 200)
+        tableView.tableHeaderView = bannerView
     }
     
     // MARK: - View
@@ -78,6 +89,10 @@ class MPHomeViewController: UIViewController {
         let tb = UITableView(frame: CGRect.zero, style: .grouped)
         tb.rowHeight = 100
         return tb
+    }()
+    fileprivate lazy var bannerView: BannerView = {
+        let view = BannerView()
+        return view
     }()
 
 }

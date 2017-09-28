@@ -12,6 +12,9 @@ import HandyJSON
 import RxCocoa
 import RxSwift
 
+let screenW: CGFloat = UIScreen.main.bounds.width
+let screenH: CGFloat = UIScreen.main.bounds.height
+
 extension Response {
     /// 将json解析为单个的Model
     public func mapObject<T: HandyJSON>(_ type: T.Type) throws -> T {
