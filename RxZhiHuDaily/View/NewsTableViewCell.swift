@@ -22,6 +22,7 @@ class NewsTableViewCell: UITableViewCell {
                         make.right.equalToSuperview().offset(-105)
                     })
                 }else {
+                    iconImgView.image = nil
                     titleLabel.snp.updateConstraints({ (make) in
                         make.right.equalToSuperview().offset(-15)
                     })
