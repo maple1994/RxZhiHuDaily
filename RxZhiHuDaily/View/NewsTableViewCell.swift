@@ -18,6 +18,13 @@ class NewsTableViewCell: UITableViewCell {
                 titleLabel.text = myModel.title
                 if let path = model?.images?.first {
                     iconImgView.kf.setImage(with: URL.init(string: path))
+                    titleLabel.snp.updateConstraints({ (make) in
+                        make.right.equalToSuperview().offset(-105)
+                    })
+                }else {
+                    titleLabel.snp.updateConstraints({ (make) in
+                        make.right.equalToSuperview().offset(-15)
+                    })
                 }
                 morePicIcon.isHidden = !myModel.multipic
             }

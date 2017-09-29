@@ -17,6 +17,7 @@ import SnapKit
 class MPThemeViewController: UIViewController {
     
     fileprivate let disposeBag = DisposeBag()
+    fileprivate var stroies = Variable([MPStoryModel]())
     
     /// 菜单栏Item
     var themeModel: MPMenuItemModel? {
@@ -25,6 +26,12 @@ class MPThemeViewController: UIViewController {
             if let urlString = themeModel?.thumbnail {
                 headerImg.kf.setImage(with: URL.init(string: urlString))
             }
+            if let id = themeModel?.id {
+                MPApiService.shareAPI.loadThemeList(ID: id)
+                .asDriver(onErrorJustReturn: [])
+                .drive(stroies)
+                .addDisposableTo(disposeBag)
+            }
         }
     }
 
@@ -32,11 +39,20 @@ class MPThemeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
+        tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "ThemeCellID")
+        tableView.rowHeight = 100
+        
         backBtn.rx.tap
             .subscribe(onNext: {
                 self.slideMenuController()?.openLeft()
             })
             .addDisposableTo(disposeBag)
+        
+        stroies.asDriver()
+            .drive(tableView.rx.items(cellIdentifier: "ThemeCellID", cellType: NewsTableViewCell.self)) { (row, element, cell) in
+                cell.model = element
+        }
+        .addDisposableTo(disposeBag)
     }
     
     fileprivate func setupUI() {

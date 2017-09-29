@@ -30,4 +30,21 @@ class MPApiService {
                 return Observable.just(list)
         }
     }
+    
+    /// 获取话题列表
+    func loadThemeList(ID: Int) -> Observable<[MPStoryModel]> {
+        return provider.request(.getThemeList(ID))
+            .flatMapLatest{ (reponse) -> Observable<[MPStoryModel]> in
+                guard let dic = try? reponse.mapJSON() as? NSDictionary else {
+                    return Observable.error(MPError.parseJsonError)
+                }
+                guard let list = MPStoryListModel.deserialize(from: dic) else {
+                    return Observable.error(MPError.parseJsonError)
+                }
+                guard let arr = list.stories else {
+                    return Observable.error(MPError.parseJsonError)
+                }
+                return Observable.just(arr)
+            }
+    }
 }
