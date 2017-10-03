@@ -53,20 +53,27 @@ class MPThemeViewController: UIViewController {
                 cell.model = element
         }
         .addDisposableTo(disposeBag)
+        
+        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
     }
     
     fileprivate func setupUI() {
-        view.addSubview(headerImg)
+        automaticallyAdjustsScrollViewInsets = false
+//        view.addSubview(headerImg)
         view.addSubview(tableView)
-        headerImg.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(-64)
-            make.height.equalTo(64)
-        }
+//        headerImg.snp.makeConstraints { (make) in
+//            make.leading.trailing.equalToSuperview()
+//            make.top.equalToSuperview().offset(-64)
+//            make.height.equalTo(64)
+//        }
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(headerImg.snp.bottom)
+            make.top.equalToSuperview().offset(-64)
             make.leading.trailing.bottom.equalToSuperview()
         }
+        tbHeaderView.frame = CGRect(x: 0, y: 0 , width: screenW, height: 64)
+        headerImg.frame = tbHeaderView.frame
+        tbHeaderView.addSubview(headerImg)
+        tableView.tableHeaderView = tbHeaderView
         // 设置导航栏
         navigationController?.navigationBar.subviews.first?.alpha = 0
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -82,6 +89,20 @@ class MPThemeViewController: UIViewController {
     fileprivate lazy var tableView = UITableView()
     fileprivate var backBtn: UIButton!
     fileprivate lazy var headerImg = UIImageView()
+    fileprivate lazy var tbHeaderView = UIView()
+}
+
+extension MPThemeViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.rx.contentOffset
+            .filter { $0.y < 0 }
+            .map { $0.y }
+            .subscribe(onNext: { offsetY in
+                self.headerImg.frame.origin.y = offsetY
+                self.headerImg.frame.size.height = 64 - offsetY
+            })
+        .addDisposableTo(disposeBag)
+    }
 }
 
 

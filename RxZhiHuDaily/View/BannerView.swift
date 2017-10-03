@@ -68,11 +68,10 @@ class BannerView: UIView {
         .asObservable()
             .subscribe(onNext: {
                 offY in
-//                print(offY)
                 self.collectionView.visibleCells.forEach({ (cell) in
                     let myCell = cell as! BannerCell
-                    myCell.imgView.frame.origin.y = CGFloat.init(offY)
-                    myCell.imgView.frame.size.height = 200 - CGFloat.init(offY)
+                    myCell.imgView.frame.origin.y = offY
+                    myCell.imgView.frame.size.height = 200 - offY
                 })
             }).addDisposableTo(dispose)
         collectionView.rx.setDelegate(self).addDisposableTo(dispose)
