@@ -88,6 +88,7 @@ class BannerView: UIView {
         view.backgroundColor = UIColor.white
         view.showsHorizontalScrollIndicator = false
         view.clipsToBounds = false
+        view.scrollsToTop = false
         return view
     }()
     

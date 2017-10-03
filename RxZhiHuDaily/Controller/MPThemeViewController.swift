@@ -24,7 +24,10 @@ class MPThemeViewController: UIViewController {
         didSet{
             navigationItem.title = themeModel?.name
             if let urlString = themeModel?.thumbnail {
-                headerImg.kf.setImage(with: URL.init(string: urlString))
+//                headerImg.kf.setImage(with: URL.init(string: urlString))
+                headerImg.kf.setImage(with: URL.init(string: urlString), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
+                    self.navImgV.image = image
+                })
             }
             if let id = themeModel?.id {
                 MPApiService.shareAPI.loadThemeList(ID: id)
@@ -32,6 +35,7 @@ class MPThemeViewController: UIViewController {
                 .drive(stroies)
                 .addDisposableTo(disposeBag)
             }
+            
         }
     }
 
@@ -59,13 +63,18 @@ class MPThemeViewController: UIViewController {
     
     fileprivate func setupUI() {
         automaticallyAdjustsScrollViewInsets = false
-//        view.addSubview(headerImg)
         view.addSubview(tableView)
-//        headerImg.snp.makeConstraints { (make) in
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalToSuperview().offset(-64)
-//            make.height.equalTo(64)
-//        }
+        view.addSubview(navView)
+        navView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(-64)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(64)
+        }
+        navView.alpha = 0
+        navView.addSubview(navImgV)
+        navImgV.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         tableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(-64)
             make.leading.trailing.bottom.equalToSuperview()
@@ -86,6 +95,8 @@ class MPThemeViewController: UIViewController {
     }
     
     // MARK: - View
+    fileprivate lazy var navView = UIView()
+    fileprivate lazy var navImgV = UIImageView()
     fileprivate lazy var tableView = UITableView()
     fileprivate var backBtn: UIButton!
     fileprivate lazy var headerImg = UIImageView()
@@ -94,6 +105,7 @@ class MPThemeViewController: UIViewController {
 
 extension MPThemeViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        navView.alpha = (scrollView.contentOffset.y > 0) ? 1 : 0
         scrollView.rx.contentOffset
             .filter { $0.y < 0 }
             .map { $0.y }

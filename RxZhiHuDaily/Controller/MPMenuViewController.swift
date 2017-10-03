@@ -100,6 +100,7 @@ class MPMenuViewController: UIViewController {
     fileprivate lazy var footerView: MPMenuFooterView = MPMenuFooterView()
     fileprivate lazy var tableView: UITableView = {
         let tb = UITableView()
+        tb.scrollsToTop = false
         tb.showsVerticalScrollIndicator = false
         tb.backgroundColor = UIColor.clear
         tb.separatorStyle = .none
