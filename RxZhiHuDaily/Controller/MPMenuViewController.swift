@@ -27,27 +27,9 @@ class MPMenuViewController: UIViewController {
         view.backgroundColor = UIColor.colorWithHexString("242A2F")
         setupUI()
 
-        provide.request(.getThemeTypeList)
-            .flatMap { (reponse) -> Observable<[MPMenuItemModel]> in
-                guard let dic = try? reponse.mapJSON() as? NSDictionary else {
-                    return Observable.error(MPError.parseJsonError)
-                }
-                guard let otherArr = dic?["others"] as? [NSDictionary] else {
-                    return Observable.error(MPError.parseJsonError)
-                }
-                var modelArr = [MPMenuItemModel]()
-                var home = MPMenuItemModel()
-                home.name = " 首页"
-                modelArr.append(home)
-                for dic in otherArr {
-                    if let model = MPMenuItemModel.deserialize(from: dic) {
-                        modelArr.append(model)
-                    }
-                }
-                return Observable.just(modelArr)
-            }.subscribe(onNext: { arr in
-                self.themeArr.value = arr
-            })
+        MPApiService.shareAPI.loadMenuItemList()
+        .asDriver(onErrorJustReturn: [MPMenuItemModel]())
+        .drive(themeArr)
         .addDisposableTo(diposeBag)
         
         tableView.register(MPMenuTableViewCell.self, forCellReuseIdentifier: "MenuID")

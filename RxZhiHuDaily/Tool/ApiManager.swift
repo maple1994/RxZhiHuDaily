@@ -16,6 +16,8 @@ enum ApiManager {
     case getHomeList
     /// 获取某个话题列表
     case getThemeList(Int)
+    /// 加载更多首页话题
+    case getMoreHomeList(String)
 }
 
 extension ApiManager: TargetType {
@@ -33,6 +35,8 @@ extension ApiManager: TargetType {
             return "4/news/latest"
         case let .getThemeList(id):
             return "4/theme/\(id)"
+        case let .getMoreHomeList(date):
+            return "4/news/before/\(date)"
         }
     }
     

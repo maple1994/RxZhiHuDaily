@@ -23,6 +23,8 @@ class MPHomeViewController: UIViewController {
     fileprivate let NewsID: String = "NewsID"
     fileprivate let provide = RxMoyaProvider<ApiManager>()
     fileprivate let modelArr = Variable([SectionModel<String, MPStoryModel>]())
+    /// 用于加载历史数据的日期
+    fileprivate var newsDate: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,24 +43,6 @@ class MPHomeViewController: UIViewController {
             .bindTo(tableView.rx.items(dataSource: dataSource))
         .addDisposableTo(disposeBag)
         
-        // 请求数据
-        MPApiService.shareAPI.loadHomeNewsList()
-        .asDriver(onErrorJustReturn: MPStoryListModel())
-            .drive(onNext: { (model) in
-                if let storyArr = model.stories {
-                    let section = SectionModel(model: "测试", items: storyArr)
-                    self.modelArr.value = [section]
-                }
-                if let topArr = model.top_stories {
-                    if topArr.count > 1 {
-                        self.bannerView.imgUrlArr.value = [topArr.last!] + topArr + [topArr.first!]
-                    }else {
-                        self.bannerView.imgUrlArr.value = topArr
-                    }
-                }
-            })
-        .addDisposableTo(disposeBag)
-        
         tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
         
         menuBtn.rx.tap
@@ -66,6 +50,8 @@ class MPHomeViewController: UIViewController {
                 self.slideMenuController()?.openLeft()
             })
         .addDisposableTo(disposeBag)
+        
+        loadNewData()
     }
     
     fileprivate func setupUI() {
@@ -92,6 +78,53 @@ class MPHomeViewController: UIViewController {
         tableView.tableHeaderView = bannerView
     }
     
+    /// 请求最新数据
+    fileprivate func loadNewData() {
+        MPApiService.shareAPI.loadHomeNewsList()
+            .asDriver(onErrorJustReturn: MPStoryListModel())
+            .drive(onNext: { (model) in
+                if let storyArr = model.stories, let date = model.date {
+                    self.newsDate = date
+                    let section = SectionModel(model: date, items: storyArr)
+                    self.modelArr.value = [section]
+                }
+                // 轮播图效果
+                if let topArr = model.top_stories {
+                    if topArr.count > 1 {
+                        self.bannerView.imgUrlArr.value = [topArr.last!] + topArr + [topArr.first!]
+                    }else {
+                        self.bannerView.imgUrlArr.value = topArr
+                    }
+                }
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    /// 加载更多首页数据
+    fileprivate func loadMoreData() {
+        MPApiService.shareAPI.loadMoreHomeNewsList(date: newsDate)
+        .asDriver(onErrorJustReturn: MPStoryListModel())
+            .drive(onNext: { (model) in
+                if let stories = model.stories, let date = model.date {
+                    self.modelArr.value.append(SectionModel(model: date, items: stories))
+                    self.newsDate = date
+                }
+            })
+        .addDisposableTo(disposeBag)
+    }
+    
+    fileprivate func createSectionHeaderView(dateStr: String) -> UIView {
+        let label = UILabel()
+        label.frame = CGRect.init(x: 0, y: 0, width: screenW, height: 38)
+        label.backgroundColor = UIColor.rgb(63, 141, 208)
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textAlignment = .center
+        let date = DateInRegion.init(string: dateStr, format: DateFormat.custom("yyyyMMdd"))!
+        label.text = "\(date.month)月\(date.day)日 \(date.weekday.toWeekday())"
+        return label
+    }
+    
     // MARK: - View
     fileprivate var barImg = UIView()
     fileprivate lazy var menuBtn: UIBarButtonItem = {
@@ -107,9 +140,17 @@ class MPHomeViewController: UIViewController {
         let view = BannerView()
         return view
     }()
+    
 }
 
 extension MPHomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == modelArr.value.count - 1 && indexPath.row == 0 {
+            loadMoreData()
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         barImg.alpha = scrollView.contentOffset.y / 200
         // tableView往下拖拽时，将offsetY绑定给bannerView的offY属性
@@ -119,6 +160,17 @@ extension MPHomeViewController: UITableViewDelegate {
             .asDriver(onErrorJustReturn: 0)
             .drive(bannerView.offY)
         .addDisposableTo(disposeBag)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return createSectionHeaderView(dateStr: dataSource[section].model)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return 38
     }
 }
 
