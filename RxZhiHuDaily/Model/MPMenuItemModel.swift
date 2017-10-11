@@ -46,6 +46,21 @@ struct MPStoryModel: HandyJSON {
     var multipic: Bool = false
 }
 
+/// 话题详情模型
+struct MPStoryDetailModel: HandyJSON {
+    var body: String?
+    var ga_prefix: String?
+    var id: Int?
+    var image: String?
+    var image_source: String?
+    var share_url: String?
+    var title: String?
+    var type: Int?
+    var images: [String]?
+    var css: [String]?
+    var js: [String]?
+}
+
 
 
 

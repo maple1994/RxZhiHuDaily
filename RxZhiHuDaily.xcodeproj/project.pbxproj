@@ -23,6 +23,7 @@
 		F5CD73A21F71F51D00E70DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5CD73A01F71F51D00E70DF1 /* LaunchScreen.storyboard */; };
 		F5CD73AD1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73AC1F71F51D00E70DF1 /* RxZhiHuDailyTests.swift */; };
 		F5CD73B81F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */; };
+		F5ED98EE1F8DA6700025BBB2 /* MPNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED98ED1F8DA6700025BBB2 /* MPNewsDetailViewController.swift */; };
 		F5FACB711F73E1F4000108E8 /* MPMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */; };
 		F5FACB731F73E4F8000108E8 /* MPMenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */; };
 		F5FACB761F73EFA3000108E8 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FACB751F73EFA3000108E8 /* ApiManager.swift */; };
@@ -70,6 +71,7 @@
 		F5CD73B31F71F51D00E70DF1 /* RxZhiHuDailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxZhiHuDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73B71F71F51D00E70DF1 /* RxZhiHuDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxZhiHuDailyUITests.swift; sourceTree = "<group>"; };
 		F5CD73B91F71F51D00E70DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5ED98ED1F8DA6700025BBB2 /* MPNewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNewsDetailViewController.swift; sourceTree = "<group>"; };
 		F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F5FACB721F73E4F8000108E8 /* MPMenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuItemModel.swift; sourceTree = "<group>"; };
 		F5FACB751F73EFA3000108E8 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				F57CC2E61F739C5400371DD8 /* MPThemeViewController.swift */,
 				F57CC2E71F739C5400371DD8 /* MPTabBarController.swift */,
 				F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */,
+				F5ED98ED1F8DA6700025BBB2 /* MPNewsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			files = (
 				F510D45F1F7C860F0099DE4A /* BannerView.swift in Sources */,
 				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
+				F5ED98EE1F8DA6700025BBB2 /* MPNewsDetailViewController.swift in Sources */,
 				F510D45D1F7C7F9C0099DE4A /* MPApiService.swift in Sources */,
 				F57CC2E91F739C5400371DD8 /* MPMenuViewController.swift in Sources */,
 				F5C8427D1F7B34AF005392B8 /* NewsTableViewCell.swift in Sources */,

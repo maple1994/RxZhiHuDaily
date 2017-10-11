@@ -38,6 +38,14 @@ class MPHomeViewController: UIViewController {
             return cell
         }
         
+        tableView.rx.modelSelected(MPStoryModel.self)
+            .subscribe(onNext: { model in
+                let detailVC = MPNewsDetailViewController()
+                detailVC.id = model.id
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            })
+        .addDisposableTo(disposeBag)
+        
         modelArr
             .asObservable()
             .bindTo(tableView.rx.items(dataSource: dataSource))
@@ -146,9 +154,14 @@ class MPHomeViewController: UIViewController {
 extension MPHomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // 滚动到最后一个section的第一个元素时，加载更多数据
         if indexPath.section == modelArr.value.count - 1 && indexPath.row == 0 {
             loadMoreData()
         }
+//        tableView.indexPathsForVisibleRows?.reduce(Int.max, { (result, ind) -> Int in
+//            print("result:\(result)-section:\(ind.section)-min:\(min(result, ind.section))")
+//            return min(result, ind.section)
+//        })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -172,6 +185,15 @@ extension MPHomeViewController: UITableViewDelegate {
         }
         return 38
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+
 }
 
 

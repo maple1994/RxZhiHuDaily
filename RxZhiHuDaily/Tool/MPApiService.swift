@@ -84,4 +84,25 @@ class MPApiService {
                 return Observable.just(arr)
             }
     }
+    
+    /// 获取话题详情
+    func loadThemeDetail(ID: Int) -> Observable<MPStoryDetailModel> {
+        return provider.request(.getThemeDetail(ID))
+            .flatMapLatest { (reponse) -> Observable<MPStoryDetailModel> in
+                guard let dic = try? reponse.mapJSON() as? NSDictionary else {
+                    return Observable.error(MPError.parseJsonError)
+                }
+                guard let model = MPStoryDetailModel.deserialize(from: dic) else {
+                    return Observable.error(MPError.parseJsonError)
+                }
+                return Observable.just(model)
+        }
+    }
 }
+
+
+
+
+
+
+
