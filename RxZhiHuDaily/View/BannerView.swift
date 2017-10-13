@@ -135,6 +135,7 @@ class BannerCell: UICollectionViewCell {
     
     fileprivate func setupUI() {
         contentView.addSubview(imgView)
+        contentView.addSubview(maskImageView)
         contentView.addSubview(titleLabel)
         
         imgView.snp.makeConstraints { (make) in
@@ -146,10 +147,17 @@ class BannerCell: UICollectionViewCell {
             make.right.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-20)
         }
+        
+        maskImageView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(100)
+        }
     }
     
     lazy var imgView: UIImageView = {
         let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
         return iv
     }()
     
@@ -159,6 +167,12 @@ class BannerCell: UICollectionViewCell {
         label.textColor = UIColor.white
         label.numberOfLines = 2
         return label
+    }()
+    
+    fileprivate lazy var maskImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "Home_Image_Mask")
+        return iv
     }()
 }
 

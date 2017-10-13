@@ -17,6 +17,7 @@
 		F57CC2ED1F739DD200371DD8 /* MPNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */; };
 		F57CC2EF1F73A5F200371DD8 /* MPMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */; };
 		F57CC2F21F73AB6100371DD8 /* SystemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */; };
+		F5B2FD4B1F8FA28300F56A7E /* MPWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2FD4A1F8FA28300F56A7E /* MPWebView.swift */; };
 		F5C8427D1F7B34AF005392B8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */; };
 		F5CD73981F71F51D00E70DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */; };
 		F5CD739F1F71F51D00E70DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5CD739E1F71F51D00E70DF1 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		F57CC2EC1F739DD200371DD8 /* MPNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPNavigationViewController.swift; sourceTree = "<group>"; };
 		F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuHeaderView.swift; sourceTree = "<group>"; };
 		F57CC2F11F73AB6100371DD8 /* SystemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemExtension.swift; sourceTree = "<group>"; };
+		F5B2FD4A1F8FA28300F56A7E /* MPWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPWebView.swift; sourceTree = "<group>"; };
 		F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F5CD73941F71F51D00E70DF1 /* RxZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CD73971F71F51D00E70DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				F5C8427C1F7B34AF005392B8 /* NewsTableViewCell.swift */,
 				F57CC2EE1F73A5F200371DD8 /* MPMenuHeaderView.swift */,
 				F5FACB701F73E1F4000108E8 /* MPMenuTableViewCell.swift */,
+				F5B2FD4A1F8FA28300F56A7E /* MPWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B2FD4B1F8FA28300F56A7E /* MPWebView.swift in Sources */,
 				F510D45F1F7C860F0099DE4A /* BannerView.swift in Sources */,
 				F57CC2E81F739C5400371DD8 /* MPHomeViewController.swift in Sources */,
 				F5ED98EE1F8DA6700025BBB2 /* MPNewsDetailViewController.swift in Sources */,
