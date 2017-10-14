@@ -25,7 +25,7 @@ class BannerView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)
-        setupUI()
+        setupUI()        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,7 +77,7 @@ class BannerView: UIView {
         collectionView.rx.setDelegate(self).addDisposableTo(dispose)
     }
     
-    fileprivate lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: screenW, height: self.itemH)
         layout.minimumLineSpacing = 0

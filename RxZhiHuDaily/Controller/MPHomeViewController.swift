@@ -25,6 +25,7 @@ class MPHomeViewController: UIViewController {
     fileprivate let modelArr = Variable([SectionModel<String, MPStoryModel>]())
     /// 用于加载历史数据的日期
     fileprivate var newsDate: String = ""
+    fileprivate let titleNum = Variable(0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,28 @@ class MPHomeViewController: UIViewController {
         .addDisposableTo(disposeBag)
         
         loadNewData()
+        
+        bannerView.collectionView.rx
+        .modelSelected(MPStoryModel.self)
+        .asDriver()
+            .drive(onNext: { model in
+                let detailVC = MPNewsDetailViewController()
+                detailVC.id = model.id
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            })
+        .addDisposableTo(disposeBag)
+        
+        titleNum.asDriver()
+            .distinctUntilChanged()
+            .drive(onNext: { num in
+                if num == 0 {
+                    self.navigationItem.title = "今日要闻"
+                }else {
+                    let date = DateInRegion.init(string: self.dataSource[num].model, format: DateFormat.custom("yyyyMMdd"))!
+                    self.navigationItem.title = "\(date.month)月\(date.day)日 \(date.weekday.toWeekday())"
+                }
+            })
+        .addDisposableTo(disposeBag)
     }
     
     fileprivate func setupUI() {
@@ -158,10 +181,12 @@ extension MPHomeViewController: UITableViewDelegate {
         if indexPath.section == modelArr.value.count - 1 && indexPath.row == 0 {
             loadMoreData()
         }
-//        tableView.indexPathsForVisibleRows?.reduce(Int.max, { (result, ind) -> Int in
-//            print("result:\(result)-section:\(ind.section)-min:\(min(result, ind.section))")
-//            return min(result, ind.section)
-//        })
+        // 获得当前列表显示的最小section
+        DispatchQueue.global().async {
+            if let value = (tableView.indexPathsForVisibleRows?.reduce(Int.max) { (result, ind) -> Int in return min(result, ind.section) }) {
+                self.titleNum.value = value
+            }
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
