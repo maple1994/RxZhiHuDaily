@@ -31,7 +31,46 @@ class MPHomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         UIApplication.shared.statusBarStyle = .lightContent
+        setupTaleView()
+        setupHeader()
+        observerScrollView()
+    }
+    
+    /// 设置头部
+    fileprivate func setupHeader() {
+        menuBtn.rx.tap
+            .subscribe(onNext: {
+                self.slideMenuController()?.openLeft()
+            })
+            .addDisposableTo(disposeBag)
         
+        loadNewData()
+        
+        bannerView.collectionView.rx
+            .modelSelected(MPStoryModel.self)
+            .asDriver()
+            .drive(onNext: { model in
+                let detailVC = MPNewsDetailViewController()
+                detailVC.id = model.id
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            })
+            .addDisposableTo(disposeBag)
+        
+        titleNum.asDriver()
+            .distinctUntilChanged()
+            .drive(onNext: { num in
+                if num == 0 {
+                    self.navigationItem.title = "今日要闻"
+                }else {
+                    let date = DateInRegion.init(string: self.dataSource[num].model, format: DateFormat.custom("yyyyMMdd"))!
+                    self.navigationItem.title = "\(date.month)月\(date.day)日 \(date.weekday.toWeekday())"
+                }
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    /// 设置tableView
+    fileprivate func setupTaleView() {
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsID)
         dataSource.configureCell = { (dataSource, tableView, indexPath, model) in
             let cell = tableView.dequeueReusableCell(withIdentifier: self.NewsID) as! NewsTableViewCell
@@ -45,44 +84,25 @@ class MPHomeViewController: UIViewController {
                 detailVC.id = model.id
                 self.navigationController?.pushViewController(detailVC, animated: true)
             })
-        .addDisposableTo(disposeBag)
+            .addDisposableTo(disposeBag)
         
         modelArr
             .asObservable()
             .bindTo(tableView.rx.items(dataSource: dataSource))
-        .addDisposableTo(disposeBag)
+            .addDisposableTo(disposeBag)
         
         tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
-        
-        menuBtn.rx.tap
-            .subscribe(onNext: {
-                self.slideMenuController()?.openLeft()
-            })
-        .addDisposableTo(disposeBag)
-        
-        loadNewData()
-        
-        bannerView.collectionView.rx
-        .modelSelected(MPStoryModel.self)
-        .asDriver()
-            .drive(onNext: { model in
-                let detailVC = MPNewsDetailViewController()
-                detailVC.id = model.id
-                self.navigationController?.pushViewController(detailVC, animated: true)
-            })
-        .addDisposableTo(disposeBag)
-        
-        titleNum.asDriver()
-            .distinctUntilChanged()
-            .drive(onNext: { num in
-                if num == 0 {
-                    self.navigationItem.title = "今日要闻"
-                }else {
-                    let date = DateInRegion.init(string: self.dataSource[num].model, format: DateFormat.custom("yyyyMMdd"))!
-                    self.navigationItem.title = "\(date.month)月\(date.day)日 \(date.weekday.toWeekday())"
-                }
-            })
-        .addDisposableTo(disposeBag)
+    }
+    
+    /// 监听scrollView
+    fileprivate func observerScrollView() {
+        // tableView往下拖拽时，将offsetY绑定给bannerView的offY属性
+        tableView.rx.contentOffset
+            .filter { $0.y < 0 }
+            .map { $0.y }
+            .asDriver(onErrorJustReturn: 0)
+            .drive(bannerView.offY)
+            .addDisposableTo(disposeBag)
     }
     
     fileprivate func setupUI() {
@@ -98,11 +118,18 @@ class MPHomeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.rgb(63, 141, 208)
         navigationController?.navigationBar.isTranslucent = false
         
-        self.view.addSubview(tableView)
+        view.addSubview(tableView)
+        view.addSubview(refreshView)
         
         tableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(-64)
             make.left.right.bottom.equalToSuperview()
+        }
+        
+        refreshView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(-37)
+            make.centerX.equalToSuperview().offset(-45)
+            make.height.width.equalTo(30)
         }
         
         bannerView.frame = CGRect(x: 0, y: 0, width: screenW, height: 200)
@@ -114,6 +141,7 @@ class MPHomeViewController: UIViewController {
         MPApiService.shareAPI.loadHomeNewsList()
             .asDriver(onErrorJustReturn: MPStoryListModel())
             .drive(onNext: { (model) in
+                self.refreshView.endRefresh()
                 if let storyArr = model.stories, let date = model.date {
                     self.newsDate = date
                     let section = SectionModel(model: date, items: storyArr)
@@ -157,6 +185,7 @@ class MPHomeViewController: UIViewController {
     }
     
     // MARK: - View
+    fileprivate lazy var refreshView = MPCircleRefreshView()
     fileprivate var barImg = UIView()
     fileprivate lazy var menuBtn: UIBarButtonItem = {
         let item = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: nil, action: nil)
@@ -175,6 +204,25 @@ class MPHomeViewController: UIViewController {
 }
 
 extension MPHomeViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        barImg.alpha = scrollView.contentOffset.y / 200
+        if scrollView.contentOffset.y < 0 {
+            refreshView.pullToRefresh(progress: -scrollView.contentOffset.y / 64)
+        }
+        
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y <= -64 {
+            refreshView.beginRefresh {
+                self.loadNewData()
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        refreshView.pullToRefresh(progress: 0)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // 滚动到最后一个section的第一个元素时，加载更多数据
@@ -187,17 +235,6 @@ extension MPHomeViewController: UITableViewDelegate {
                 self.titleNum.value = value
             }
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        barImg.alpha = scrollView.contentOffset.y / 200
-        // tableView往下拖拽时，将offsetY绑定给bannerView的offY属性
-        scrollView.rx.contentOffset
-            .filter { $0.y < 0 }
-            .map { $0.y }
-            .asDriver(onErrorJustReturn: 0)
-            .drive(bannerView.offY)
-        .addDisposableTo(disposeBag)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
