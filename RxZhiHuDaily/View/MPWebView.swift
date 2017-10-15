@@ -32,6 +32,8 @@ class MPWebView: WKWebView {
         super.init(frame: CGRect.zero, configuration: config)
         setupUI()
         
+        self.navigationDelegate = self
+        
         // 监听偏移量
         offset.asDriver()
             .filter { $0.y < 0 }
@@ -39,10 +41,6 @@ class MPWebView: WKWebView {
             .drive(onNext: { offsetY in
                 self.topImageView.frame.origin.y = offsetY
                 self.topImageView.frame.size.height = 200 - offsetY
-//                self.topImageView.snp.updateConstraints({ (make) in
-//                    make.top.equalToSuperview().offset(offsetY)
-//                    make.height.equalTo(200 - offsetY)
-//                })
             })
         .addDisposableTo(disposeBag)
         
@@ -54,6 +52,17 @@ class MPWebView: WKWebView {
                     self.topImageView.kf.setImage(with: URL(string: urlString))
                 }
                 self.titleLabel.text = model.title
+                if let title = model.title {
+                    let size = CGSize(width: screenW - 30, height: CGFloat(MAXFLOAT))
+                    let textH = (title as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.titleLabel.font], context: nil).height
+                    if textH > 25 {
+                        self.titleLabel.frame.origin.y = 120
+                        self.titleLabel.frame.size.height = 55
+                    }else {
+                        self.titleLabel.frame.origin.y = 150
+                        self.titleLabel.frame.size.height = 26
+                    }
+                }
                 if let source = model.image_source {
                     self.imgLabel.text = "图片:\(source)"
                 }
@@ -92,44 +101,40 @@ class MPWebView: WKWebView {
         imgLabel.font = UIFont.systemFont(ofSize: 10)
         imgLabel.textAlignment = .right
         imgLabel.textColor = UIColor.white
+        preLabel = UILabel()
+        preLabel.textAlignment = .center
+        preLabel.text = "载入上一篇"
+        preLabel.textColor = UIColor.white
+        nextLabel = UILabel()
+        nextLabel.textAlignment = .center
+        nextLabel.text = "载入下一篇"
+        nextLabel.textColor = UIColor.black
+        
+        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         
         scrollView.addSubview(topImageView)
         scrollView.addSubview(maskImageView)
         scrollView.addSubview(titleLabel)
         scrollView.addSubview(imgLabel)
-
-//        topImageView.snp.makeConstraints { (make) in
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalToSuperview().offset(0)
-//            make.width.equalTo(screenW)
-//            make.height.equalTo(200)
-//        }
-//
-//        maskImageView.snp.makeConstraints { (make) in
-//            make.bottom.equalTo(topImageView)
-//            make.leading.trailing.equalToSuperview()
-//            make.height.equalTo(100)
-//        }
-//
-//        titleLabel.snp.makeConstraints { (make) in
-//            make.leading.equalToSuperview().offset(15)
-//            make.trailing.equalToSuperview().offset(-15)
-//            make.bottom.equalTo(topImageView).offset(-25)
-//        }
-//
-//        imgLabel.snp.makeConstraints { (make) in
-//            make.leading.equalToSuperview().offset(15)
-//            make.trailing.equalToSuperview().offset(-15)
-//            make.bottom.equalTo(topImageView).offset(-5)
-//        }
+        scrollView.addSubview(preLabel)
+        scrollView.addSubview(nextLabel)
+        scrollView.addSubview(indicatorView)
+        
         topImageView.frame = CGRect.init(x: 0, y: 0, width: screenW, height: 200)
         maskImageView.frame = CGRect.init(x: 0, y: 100, width: screenW, height: 100)
         titleLabel.frame =  CGRect.init(x: 15, y: 150, width: screenW - 30, height: 26)
         imgLabel.frame = CGRect.init(x: 15, y: 180, width: screenW - 30, height: 16)
+        preLabel.frame = CGRect.init(x: 15, y: -30, width: screenW - 30, height: 20)
+        nextLabel.frame = CGRect.init(x: 15, y: screenH + 30, width: screenW - 30, height: 20)
     }
     
     required init?(coder: NSCoder) {
         fatalError("")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        indicatorView.center = self.center
     }
     
     // MARK: - View
@@ -137,6 +142,30 @@ class MPWebView: WKWebView {
     fileprivate var maskImageView: UIImageView!
     fileprivate var titleLabel: UILabel!
     fileprivate var imgLabel: UILabel!
+    fileprivate var preLabel: UILabel!
+    fileprivate var nextLabel: UILabel!
+    fileprivate var indicatorView: UIActivityIndicatorView!
+}
+
+extension MPWebView: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        indicatorView.startAnimating()
+        decisionHandler(.allow)
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        indicatorView.stopAnimating()
+        webView.evaluateJavaScript("document.body.scrollHeight") { (result, error) in
+            if let height = result as? CGFloat {
+                self.nextLabel.frame.origin.y = height + 50
+            }
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        indicatorView.stopAnimating()
+    }
 }
 
 
