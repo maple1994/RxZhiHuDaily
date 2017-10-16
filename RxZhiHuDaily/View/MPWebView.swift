@@ -110,7 +110,12 @@ class MPWebView: WKWebView {
         nextLabel.text = "载入下一篇"
         nextLabel.textColor = UIColor.black
         
+        loadingView = UIView()
+        loadingView.backgroundColor = UIColor.white
+        loadingView.frame = CGRect.init(x: 0, y: 0, width: screenW, height: screenH)
         indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        indicatorView.center = loadingView.center
+        loadingView.addSubview(indicatorView)
         
         scrollView.addSubview(topImageView)
         scrollView.addSubview(maskImageView)
@@ -118,7 +123,7 @@ class MPWebView: WKWebView {
         scrollView.addSubview(imgLabel)
         scrollView.addSubview(preLabel)
         scrollView.addSubview(nextLabel)
-        scrollView.addSubview(indicatorView)
+        scrollView.addSubview(loadingView)
         
         topImageView.frame = CGRect.init(x: 0, y: 0, width: screenW, height: 200)
         maskImageView.frame = CGRect.init(x: 0, y: 100, width: screenW, height: 100)
@@ -145,17 +150,20 @@ class MPWebView: WKWebView {
     fileprivate var preLabel: UILabel!
     fileprivate var nextLabel: UILabel!
     fileprivate var indicatorView: UIActivityIndicatorView!
+    fileprivate var loadingView: UIView!
 }
 
 extension MPWebView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         indicatorView.startAnimating()
+        loadingView.isHidden = false
         decisionHandler(.allow)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         indicatorView.stopAnimating()
+        loadingView.isHidden = true
         webView.evaluateJavaScript("document.body.scrollHeight") { (result, error) in
             if let height = result as? CGFloat {
                 self.nextLabel.frame.origin.y = height + 50
@@ -165,6 +173,7 @@ extension MPWebView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         indicatorView.stopAnimating()
+        loadingView.isHidden = true
     }
 }
 
