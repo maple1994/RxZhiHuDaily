@@ -147,23 +147,35 @@ class MPWebView: WKWebView {
     fileprivate var maskImageView: UIImageView!
     fileprivate var titleLabel: UILabel!
     fileprivate var imgLabel: UILabel!
-    fileprivate var preLabel: UILabel!
-    fileprivate var nextLabel: UILabel!
+    var preLabel: UILabel!
+    var nextLabel: UILabel!
     fileprivate var indicatorView: UIActivityIndicatorView!
     fileprivate var loadingView: UIView!
+}
+
+extension MPWebView {
+    func startLoading() {
+        indicatorView.startAnimating()
+        loadingView.isHidden = false
+    }
+    
+    func endLoading() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            self.indicatorView.stopAnimating()
+            self.loadingView.isHidden = true
+        }
+    }
 }
 
 extension MPWebView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        indicatorView.startAnimating()
-        loadingView.isHidden = false
+        startLoading()
         decisionHandler(.allow)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        indicatorView.stopAnimating()
-        loadingView.isHidden = true
+        endLoading()
         webView.evaluateJavaScript("document.body.scrollHeight") { (result, error) in
             if let height = result as? CGFloat {
                 self.nextLabel.frame.origin.y = height + 50
@@ -172,8 +184,7 @@ extension MPWebView: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        indicatorView.stopAnimating()
-        loadingView.isHidden = true
+        endLoading()
     }
 }
 

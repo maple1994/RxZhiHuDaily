@@ -46,13 +46,20 @@ class MPHomeViewController: UIViewController {
         
         loadNewData()
         
-        bannerView.collectionView.rx
-            .modelSelected(MPStoryModel.self)
-            .asDriver()
-            .drive(onNext: { model in
-                let detailVC = MPNewsDetailViewController()
-                detailVC.id = model.id
-                self.navigationController?.pushViewController(detailVC, animated: true)
+        bannerView.selectedIndex
+            .asObservable()
+            .subscribe(onNext: { index in
+                var idArr = [Int]()
+                if let modelArr = self.bannerView.topStories {
+                    for item in modelArr {
+                        if let id = item.id {
+                            idArr.append(id)
+                        }
+                    }
+                    let detailVC = MPNewsDetailViewController(idArr: idArr, index: index)
+                    self.navigationController?.pushViewController(detailVC, animated: true)
+                }
+                
             })
             .addDisposableTo(disposeBag)
         
@@ -78,13 +85,13 @@ class MPHomeViewController: UIViewController {
             return cell
         }
         
-        tableView.rx.modelSelected(MPStoryModel.self)
-            .subscribe(onNext: { model in
-                let detailVC = MPNewsDetailViewController()
-                detailVC.id = model.id
-                self.navigationController?.pushViewController(detailVC, animated: true)
+        tableView.rx
+            .itemSelected
+            .subscribe(onNext: { indexPath in
+                self.showDetailVC(indexPath: indexPath)
             })
             .addDisposableTo(disposeBag)
+        
         
         modelArr
             .asObservable()
@@ -136,6 +143,18 @@ class MPHomeViewController: UIViewController {
         tableView.tableHeaderView = bannerView
     }
     
+    fileprivate func showDetailVC(indexPath: IndexPath) {
+        var idArr = [Int]()
+        let sectionModel = self.modelArr.value[indexPath.section]
+        for item in sectionModel.items {
+            if let id = item.id {
+                idArr.append(id)
+            }
+        }
+        let detailVC = MPNewsDetailViewController(idArr: idArr, index: indexPath.row)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     /// 请求最新数据
     fileprivate func loadNewData() {
         MPApiService.shareAPI.loadHomeNewsList()
@@ -148,13 +167,7 @@ class MPHomeViewController: UIViewController {
                     self.modelArr.value = [section]
                 }
                 // 轮播图效果
-                if let topArr = model.top_stories {
-                    if topArr.count > 1 {
-                        self.bannerView.imgUrlArr.value = [topArr.last!] + topArr + [topArr.first!]
-                    }else {
-                        self.bannerView.imgUrlArr.value = topArr
-                    }
-                }
+                self.bannerView.topStories = model.top_stories
             })
             .addDisposableTo(disposeBag)
     }

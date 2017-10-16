@@ -16,17 +16,50 @@ import WebKit
 /// 话题详情控制器
 class MPNewsDetailViewController: UIViewController {
 
-    var id: Int?
+    fileprivate var id: Int {
+        get {
+            return idArr[index]
+        }
+    }
     fileprivate let disposeBag = DisposeBag()
+    fileprivate var index: Int
+    fileprivate var idArr: [Int]
+    
+    /// 创建话题详情控制器
+    ///
+    /// - Parameters:
+    ///   - idArr: 话题id数组
+    ///   - index: 当前展示的话题索引
+    init(idArr: [Int], index: Int) {
+        self.idArr = idArr
+        self.index = index
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("")
+    }
+    
+    fileprivate func didSetIndex(_ tmpIndex: Int) {
+        index = tmpIndex
+        if index == 0 {
+            webView.preLabel.text = "已经是第一篇了"
+        }else if index == idArr.count - 1 {
+            webView.nextLabel.text = "已经是最后一篇了"
+        }else {
+            webView.preLabel.text = "载入上一篇"
+            webView.nextLabel.text = "载入下一篇"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
         webView = MPWebView()
         topAnimatedView = UIView()
-        topAnimatedView.backgroundColor = UIColor.red
+        topAnimatedView.backgroundColor = UIColor.white
         bottomAnimatedView = UIView()
-        bottomAnimatedView.backgroundColor = UIColor.green
+        bottomAnimatedView.backgroundColor = UIColor.white
         statusBackView.frame = CGRect(x: 0, y: 0, width: screenW, height: 20)
         
         webView.frame = CGRect(x: 0, y: -20, width: screenW, height: screenH + 20)
@@ -59,6 +92,8 @@ class MPNewsDetailViewController: UIViewController {
         
         webView.scrollView.rx.setDelegate(self)
             .addDisposableTo(disposeBag)
+        
+        didSetIndex(index)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,10 +119,7 @@ class MPNewsDetailViewController: UIViewController {
 //    }
     
     fileprivate func loadData() {
-        guard let ID = id else {
-            return
-        }
-        MPApiService.shareAPI.loadThemeDetail(ID: ID)
+        MPApiService.shareAPI.loadThemeDetail(ID: id)
             .asDriver(onErrorJustReturn: MPStoryDetailModel())
             .drive(webView.detailModel)
             .addDisposableTo(disposeBag)
@@ -108,20 +140,26 @@ extension MPNewsDetailViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 //        print("offY:-\(scrollView.contentOffset.y), height:-\(contentH)")
-        if scrollView.contentOffset.y <= -75 {
+        if scrollView.contentOffset.y <= -75 && index != 0{
+            webView.startLoading()
             UIView.animate(withDuration: 0.3, animations: {
                 self.topAnimatedView.transform = CGAffineTransform.init(translationX: 0, y: (screenH + 20))
             }, completion: { (state) in
                 if state {
                     self.topAnimatedView.transform = CGAffineTransform.identity
+                    self.didSetIndex(self.index - 1)
+                    self.loadData()
                 }
             })
-        }else if scrollView.contentOffset.y + screenH - 70 >= scrollView.contentSize.height {
+        }else if scrollView.contentOffset.y + screenH - 70 >= scrollView.contentSize.height && index != idArr.count - 1 {
+            webView.startLoading()
             UIView.animate(withDuration: 0.3, animations: {
                 self.bottomAnimatedView.transform = CGAffineTransform.init(translationX: 0, y: -(screenH + 20))
             }, completion: { (state) in
                 if state {
                     self.bottomAnimatedView.transform = CGAffineTransform.identity
+                    self.didSetIndex(self.index + 1)
+                    self.loadData()
                 }
             })
         }

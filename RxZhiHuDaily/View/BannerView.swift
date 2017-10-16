@@ -18,10 +18,23 @@ import Kingfisher
 class BannerView: UIView {
     
     fileprivate let itemH: CGFloat = 200
-    let imgUrlArr = Variable([MPStoryModel]())
+    var topStories: [MPStoryModel]? {
+        didSet {
+            if let arr = topStories {
+                if arr.count > 1 {
+                    imgUrlArr.value = [arr.last!] + arr + [arr.first!]
+                }else {
+                    imgUrlArr.value = arr
+                }
+            }
+        }
+    }
+    fileprivate let imgUrlArr = Variable([MPStoryModel]())
     let dispose = DisposeBag()
     // 监听tableView的滚动
     var offY: Variable<CGFloat> = Variable(0.0)
+    var selectedIndex: Variable<Int> = Variable(0)
+    fileprivate var index: Int = 0
     
     init() {
         super.init(frame: CGRect.zero)
@@ -75,6 +88,13 @@ class BannerView: UIView {
                 })
             }).addDisposableTo(dispose)
         collectionView.rx.setDelegate(self).addDisposableTo(dispose)
+        
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { ip in
+                let index = (ip.row - 1) >= 0 ? ip.row - 1 : 0
+                self.selectedIndex.value = index
+            })
+        .addDisposableTo(dispose)
     }
     
     lazy var collectionView: UICollectionView = {
