@@ -120,7 +120,7 @@ class MPHomeViewController: UIViewController {
         navigationItem.title = "今日要闻"
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = menuBtn
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barTintColor = UIColor.rgb(63, 141, 208)
         navigationController?.navigationBar.isTranslucent = false

@@ -10,7 +10,7 @@ PODS:
   - Moya/RxSwift (8.0.5):
     - Moya/Core
     - RxSwift (~> 3.0)
-  - Result (3.2.3)
+  - Result (3.2.4)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
   - RxDataSources (1.0.0):
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
   Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
-  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
@@ -46,6 +46,6 @@ SPEC CHECKSUMS:
   SnapKit: 98af0a4e9369d3c58f758967518081dbdc7eb1d9
   SwiftDate: '029be76691ee89176da3a46c7df3415b6734bc5b'
 
-PODFILE CHECKSUM: ccfffa3ff3965abd4d200b7cd3472b8aa1f272b1
+PODFILE CHECKSUM: 5f558b80c5efd379b6114e20a75872aa3696e2d0
 
 COCOAPODS: 1.2.0

@@ -24,7 +24,6 @@ class MPThemeViewController: UIViewController {
         didSet{
             navigationItem.title = themeModel?.name
             if let urlString = themeModel?.thumbnail {
-//                headerImg.kf.setImage(with: URL.init(string: urlString))
                 headerImg.kf.setImage(with: URL.init(string: urlString), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
                     self.navImgV.image = image
                 })
@@ -58,7 +57,34 @@ class MPThemeViewController: UIViewController {
         }
         .addDisposableTo(disposeBag)
         
+        tableView.rx.contentOffset
+            .filter { $0.y < 0 }
+            .map { $0.y }
+            .subscribe(onNext: { offsetY in
+                self.headerImg.frame.origin.y = offsetY
+                self.headerImg.frame.size.height = 64 - offsetY
+            })
+            .addDisposableTo(disposeBag)
         tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        
+        tableView.rx
+            .itemSelected
+            .subscribe(onNext: { indexPath in
+                self.showDetailVC(indexPath: indexPath)
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    fileprivate func showDetailVC(indexPath: IndexPath) {
+        var idArr = [Int]()
+        let sectionModel = self.stroies.value
+        for item in sectionModel {
+            if let id = item.id {
+                idArr.append(id)
+            }
+        }
+        let detailVC = MPNewsDetailViewController(idArr: idArr, index: indexPath.row)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     fileprivate func setupUI() {
@@ -85,9 +111,10 @@ class MPThemeViewController: UIViewController {
         tableView.tableHeaderView = tbHeaderView
         // 设置导航栏
         navigationController?.navigationBar.subviews.first?.alpha = 0
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = UIColor.white
         backBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 60))
         backBtn.setImage(UIImage.init(named: "Back_White"), for: .normal)
         backBtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -20, bottom: 0, right: 60)
@@ -106,14 +133,6 @@ class MPThemeViewController: UIViewController {
 extension MPThemeViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         navView.alpha = (scrollView.contentOffset.y > 0) ? 1 : 0
-        scrollView.rx.contentOffset
-            .filter { $0.y < 0 }
-            .map { $0.y }
-            .subscribe(onNext: { offsetY in
-                self.headerImg.frame.origin.y = offsetY
-                self.headerImg.frame.size.height = 64 - offsetY
-            })
-        .addDisposableTo(disposeBag)
     }
 }
 

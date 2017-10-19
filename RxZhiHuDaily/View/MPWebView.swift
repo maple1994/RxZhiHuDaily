@@ -50,11 +50,21 @@ class MPWebView: WKWebView {
                 self.loadHTML(model: model)
                 if let urlString = model.image {
                     self.topImageView.kf.setImage(with: URL(string: urlString))
+                    self.topImageView.isHidden = false
+                    self.preLabel.textColor = UIColor.white
+                    self.titleLabel.isHidden = false
+                    self.maskImageView.isHidden = false
+                }else {
+                    // 没有图片
+                    self.topImageView.isHidden = true
+                    self.preLabel.textColor = UIColor.black
+                    self.titleLabel.isHidden = true
+                    self.maskImageView.isHidden = true
                 }
                 self.titleLabel.text = model.title
                 if let title = model.title {
                     let size = CGSize(width: screenW - 30, height: CGFloat(MAXFLOAT))
-                    let textH = (title as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.titleLabel.font], context: nil).height
+                    let textH = (title as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: self.titleLabel.font], context: nil).height
                     if textH > 25 {
                         self.titleLabel.frame.origin.y = 120
                         self.titleLabel.frame.size.height = 55
