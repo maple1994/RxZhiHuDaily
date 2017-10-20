@@ -10,7 +10,7 @@ target 'RxZhiHuDaily' do
           config.build_settings['SWIFT_VERSION'] = '3.2'
       end
   end
-  end
+  en
 
 pod 'Moya','8.0.5'
 pod 'Moya/RxSwift', '8.0.5'

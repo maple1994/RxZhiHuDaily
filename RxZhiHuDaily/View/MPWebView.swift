@@ -23,6 +23,7 @@ class MPWebView: WKWebView {
     let disposeBag = DisposeBag()
     
     init() {
+        // 设置内容自适应
         let js = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
         let wkUserScript = WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         let config = WKWebViewConfiguration()

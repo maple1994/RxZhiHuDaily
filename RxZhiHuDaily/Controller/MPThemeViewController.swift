@@ -65,7 +65,6 @@ class MPThemeViewController: UIViewController {
                 self.headerImg.frame.size.height = 64 - offsetY
             })
             .addDisposableTo(disposeBag)
-        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
         
         tableView.rx
             .itemSelected
@@ -73,6 +72,14 @@ class MPThemeViewController: UIViewController {
                 self.showDetailVC(indexPath: indexPath)
             })
             .addDisposableTo(disposeBag)
+        
+        tableView.rx
+        .contentOffset
+            .map { $0.y }
+            .subscribe(onNext: { y in
+                self.navView.alpha = (y > 0) ? 1 : 0
+            })
+        .addDisposableTo(disposeBag)
     }
     
     fileprivate func showDetailVC(indexPath: IndexPath) {
@@ -128,12 +135,6 @@ class MPThemeViewController: UIViewController {
     fileprivate var backBtn: UIButton!
     fileprivate lazy var headerImg = UIImageView()
     fileprivate lazy var tbHeaderView = UIView()
-}
-
-extension MPThemeViewController: UITableViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        navView.alpha = (scrollView.contentOffset.y > 0) ? 1 : 0
-    }
 }
 
 

@@ -99,6 +99,17 @@ class MPHomeViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        
+        tableView.rx
+        .contentOffset
+            .map { $0.y }
+            .subscribe(onNext: { y in
+                self.barImg.alpha = y / 200
+                if y < 0 {
+                    self.refreshView.pullToRefresh(progress: -y / 64)
+                }
+            })
+        .addDisposableTo(disposeBag)
     }
     
     /// 监听scrollView
@@ -217,13 +228,6 @@ class MPHomeViewController: UIViewController {
 }
 
 extension MPHomeViewController: UITableViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        barImg.alpha = scrollView.contentOffset.y / 200
-        if scrollView.contentOffset.y < 0 {
-            refreshView.pullToRefresh(progress: -scrollView.contentOffset.y / 64)
-        }
-        
-    }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y <= -64 {
